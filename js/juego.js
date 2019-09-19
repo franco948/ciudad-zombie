@@ -132,6 +132,11 @@ Juego.capturarMovimiento = function(tecla) {
     de sus metodos  */
 
     /* COMPLETAR */
+    this.jugador.mover({
+      deltaX: movX,
+      deltaY: movY,
+      tecla: tecla
+    });
   }
 };
 
@@ -147,6 +152,7 @@ Juego.dibujar = function() {
   "Dibujante dibuja al jugador" */
 
   /* Completar */
+  Dibujante.dibujarEntidad(this.jugador);
 
   // Se recorren los obstaculos de la carretera pintandolos
   this.obstaculosCarretera.forEach(function(obstaculo) {
