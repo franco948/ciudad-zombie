@@ -47,8 +47,12 @@ var Jugador = {
 
     this.sprite = newSprite;
   },
-  perderVida: function(cantidadVidaPerdida)
+  perderVidas: function(cantidadVidaPerdida)
   {
     this.vidas -= cantidadVidaPerdida;
+  },
+  perderTodasLasVidas: function()
+  {
+    this.vidas = 0;
   }
 }

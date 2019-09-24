@@ -65,7 +65,17 @@ var Juego = {
   ],
   // Los enemigos se agregaran en este arreglo.
   enemigos: [
+    // Zombies Caminadores
+    new ZombieCaminante('imagenes/zombie1.png', 100, 100, 10, 10, 1, { desdeX: 0, hastaX: 961}),
+    new ZombieCaminante('imagenes/zombie3.png', 400, 200, 10, 10, 2, { desdeX: 0, hastaX: 961}),
+    new ZombieCaminante('imagenes/zombie2.png', 300, 300, 10, 10, 1, { desdeX: 0, hastaX: 961}),
+    new ZombieCaminante('imagenes/zombie1.png', 400, 400, 10, 10, 1, { desdeX: 0, hastaX: 961}),
+    new ZombieCaminante('imagenes/zombie4.png', 500, 500, 10, 10, 2, { desdeX: 0, hastaX: 961}),
 
+    // Zombies Conductores
+    new ZombieConductor('imagenes/tren_horizontal.png', 400, 322, 90, 30, 5, { desdeX: 0, hastaX: 961}, 'h'),
+    new ZombieConductor('imagenes/tren_vertical.png'  , 644, 0  , 30, 90, 5, { desdeY: 0, hastaY: 577}, 'v'),
+    new ZombieConductor('imagenes/tren_vertical.png'  , 678, 0  , 30, 90, 5, { desdeY: 0, hastaY: 577}, 'v'),
   ]
 
 }
@@ -182,7 +192,7 @@ Juego.dibujar = function() {
 
   // Se recorren los enemigos pintandolos
   this.enemigos.forEach(function(enemigo) {
-    /* Completar */
+    Dibujante.dibujarEntidad(enemigo);
   });
 
   // El dibujante dibuja las vidas del jugador
@@ -201,6 +211,9 @@ un recorrido por los enemigos para dibujarlos en pantalla ahora habra que hacer
 una funcionalidad similar pero para que se muevan.*/
 Juego.moverEnemigos = function() {
   /* COMPLETAR */
+  this.enemigos.forEach(function(enemigo) {
+    enemigo.mover();
+  });
 };
 
 /* Recorre los enemigos para ver cual esta colisionando con el jugador
@@ -212,9 +225,11 @@ Juego.calcularAtaques = function() {
     if (this.intersecan(enemigo, this.jugador, this.jugador.x, this.jugador.y)) {
       /* Si el enemigo colisiona debe empezar su ataque
       COMPLETAR */
+      enemigo.comenzarAtaque(this.jugador);
     } else {
       /* Sino, debe dejar de atacar
       COMPLETAR */
+      enemigo.dejarDeAtacar();
     }
   }, this);
 };
