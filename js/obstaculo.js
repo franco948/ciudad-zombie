@@ -14,5 +14,6 @@ var Obstaculo = function (sprite, x, y, ancho, alto, potencia) {
   this.chocar = function(jugador)
   {
     jugador.perderVida(this.potencia);
+    this.potencia = 0;
   }
 }

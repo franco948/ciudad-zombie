@@ -23,10 +23,8 @@ var Juego = {
     new Obstaculo('imagenes/valla_horizontal.png', 70, 430, 30, 30, 1),
     new Obstaculo('imagenes/valla_horizontal.png', 100, 430, 30, 30, 1),
     new Obstaculo('imagenes/valla_horizontal.png', 130, 430, 30, 30, 1),
-
     new Obstaculo('imagenes/valla_horizontal.png', 760, 140, 30, 30, 1),
     new Obstaculo('imagenes/valla_horizontal.png', 790, 140, 30, 30, 1),
-
     new Obstaculo('imagenes/valla_horizontal.png', 130, 430, 30, 30, 1),
     new Obstaculo('imagenes/valla_horizontal.png', 130, 430, 30, 30, 1),
 
@@ -35,8 +33,10 @@ var Juego = {
     new Obstaculo('imagenes/valla_vertical.png', 460, 460, 30, 30, 1),
     new Obstaculo('imagenes/valla_vertical.png', 460, 430, 30, 30, 1),
     new Obstaculo('imagenes/valla_vertical.png', 400, 195, 30, 30, 1),
+
     new Obstaculo('imagenes/auto_verde_abajo.png', 120, 370, 15, 30, 1),
     new Obstaculo('imagenes/auto_verde_derecha.png', 520, 240, 30, 15, 1),
+
     new Obstaculo('imagenes/bache.png', 360, 440, 30, 30, 2),
     new Obstaculo('imagenes/bache.png', 470, 320, 30, 30, 2),
     new Obstaculo('imagenes/bache.png', 520, 120, 30, 30, 2),
@@ -229,6 +229,7 @@ Juego.chequearColisiones = function(x, y) {
     if (this.intersecan(obstaculo, this.jugador, x, y)) {
 
       /*COMPLETAR, obstaculo debe chocar al jugador*/
+      obstaculo.chocar(this.jugador);
 
       puedeMoverse = false
     }
